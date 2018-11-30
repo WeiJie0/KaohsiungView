@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Have Fun</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="stylesheets/all.css">
+  <style>
+    body{
+      background: #F2F2F2;
+    }
+    .bg-cover {
+      background-size: cover;
+      background-position: center center;
+    }
+    .navbar{
+      height: 92px;
+    }
+    .serchbar{
+      font-family: 'Roboto-Italic';
+      color: #ffffff;
+      background: transparent;
+      border: none;
+    }
+    ::placeholder{
+      color: #ffffff;
+    }
+    nav .form-inline{
+      width: 388px;
+      margin-left: 149px;
+    }
+    .tag-radius{
+      border-radius: 50px;
+    }
+    .result .card-body:hover{
+      box-shadow: 0px 0px 35px rgba(0,0,0,0.3);
+    }
+    .result .form-row{
+      height: 220px;
+    }
+    
+    @media (max-width: 576px) { 
+      .result .card-body{
+        height: 380px;
+      }
+      .view-img{
+        height: 196px;
+      }
+      .result .card-body:hover{
+        box-shadow: none;
+      }
+    }
+    @media (min-width: 576px) { 
+      .view-title{
+        font-size: 18pt;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 頂部搜尋欄 -->
+  <header>
+    <nav class="navbar navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand mx-auto mx-sm-0" href="#">
+          <img src="https://hexschool.github.io/THE_F2E_Design/week2-filter/assets/logo.svg" width="120" height="24"
+            alt="">
+        </a>
+        <div class="form-inline mr-auto border-bottom d-none d-sm-block">
+          <i class="fas fa-search text-white mr-6"></i>
+          <input type="text" class="serchbar" placeholder="請輸入關鍵字">
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="container">
+    <div class="row">
+      <!-- 側邊 -->
+      <div class="col-md-5 col-lg-3">
+        <div class="card bg-side rounded-0">
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <h5 class="mb-3"><i class="fas fa-map-marker-alt text-secondary mr-2"></i>地區選項</h5>
+                <label for="Location" class="sr-only">Location</label>
+                <select class="form-control" id="Location">
+                  <option value="all">全部</option>
+                </select>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="card bg-side rounded-0">
+          <div class="card-body">
+            <h5 class="mb-4"><i class="fas fa-check-double text-secondary mr-2"></i>其他選項</h5>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="Free">
+              <label class="custom-control-label" for="Free">免費參觀</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="Allday">
+              <label class="custom-control-label" for="Allday">全天候開放</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 主要顯示 -->
+      <div class="view-page col-md-7 col-lg-9">
+        <h4 class="pt-3 pl-3">共顯示 <span class="result-count h3 text-info"></span> 筆結果 …</h4>
+        <!-- tags -->
+        <div class="result-tag d-flex pl-3 my-2 my-md-0">
+        </div>
+        <!-- 內容 -->
+        <div class="result">
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 景點視窗 -->
+  <div class="modal fade" id="viewmodal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header badge-primary text-white">
+          <h5 class="modal-title ml-auto" id="Modal title"></h5>
+          <button type="button" class="close" data-dismiss="modal">
+          </button>
+        </div>
+        <div class="modal-body">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+  <script src="getview.js"></script>
+
+</body>
+
+</html>
